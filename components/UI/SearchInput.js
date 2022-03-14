@@ -58,7 +58,12 @@ const styles = StyleSheet.create({
   },
   inputFocus: {
     borderColor: Colors.primary,
-    borderWidth: 3,
+    borderWidth: 2,
+    shadowColor: Colors.primary,
+    shadowOffset: {width: 0, height: 3},
+    shadowRadius: 6,
+    shadowOpacity: 0.27,
+    elevation: 8, // for android
   },
 });
 
