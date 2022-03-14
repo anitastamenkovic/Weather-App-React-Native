@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Open Sans',
     fontWeight: 'bold',
     fontSize: Dimensions.get('window').height < 400 ? 20 : 22,
-    color: Colors.grey,
+    color: Colors.lightGray,
   },
 });
 

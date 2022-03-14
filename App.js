@@ -2,8 +2,8 @@ import React from 'react';
 import type {Node} from 'react';
 import {StyleSheet, View, ImageBackground} from 'react-native';
 
-import WeatherData from './components/layout/WeatherData';
-import SearchInput from './components/UI/SearchInput';
+import HomeScreen from './screens/HomeScreen';
+import WeatherForecastScreen from './screens/WeatherForecastScreen';
 
 const App: () => Node = () => {
   return (
@@ -12,8 +12,8 @@ const App: () => Node = () => {
         source={require('./assets/clouds.jpg')}
         resizeMode="cover"
         style={styles.image}>
-        <WeatherData />
-        <SearchInput />
+        <HomeScreen />
+        <WeatherForecastScreen />
       </ImageBackground>
     </View>
   );
@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
   image: {
     flex: 1,
     justifyContent: 'center',
+    alignItems: 'center',
     width: '100%',
     opacity: 0.8,
     backgroundColor: 'black',

@@ -32,7 +32,7 @@ const SearchInput = () => {
           keyboardType="default"
           minLength={2}
           placeholder="Search any city"
-          placeholderTextColor={Colors.lightPrimary}
+          placeholderTextColor={Colors.grey}
           style={{...styles.input, ...customStyle}}
         />
       </View>
@@ -43,14 +43,14 @@ const SearchInput = () => {
 const styles = StyleSheet.create({
   inputContainer: {
     alignItems: 'center',
+    justifyContent: 'center',
     flex: 1,
-    marginTop: 20,
   },
   input: {
     height: 40,
     width: '80%',
-    backgroundColor: Colors.grey,
-    color: Colors.lightPrimary,
+    backgroundColor: Colors.lightGray,
+    color: Colors.grey,
     marginVertical: 10,
     fontFamily: 'Open Sans',
     borderRadius: 5,
