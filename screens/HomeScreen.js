@@ -1,31 +1,53 @@
-import React, {useState} from 'react';
-import {StyleSheet} from 'react-native';
-// import Colors from '../constants/colors';
+import React from 'react';
+import {StyleSheet, View, ImageBackground} from 'react-native';
 
+import useForecast from '../api/useForecast';
+import Header from '../components/layout/Header';
 import Card from '../components/UI/Card';
-import SearchInput from '../components/UI/SearchInput';
-import MainButton from '../components/UI/MainButton';
+import Form from '../components/form/Form';
+import Error from '../components/error/Error';
+import Loader from '../components/loader/Loader';
+import Forecast from '../components/forecast/Forecast';
 
-const HomeScreen = ({onSearchLocation}) => {
-  const [location, setLocation] = useState('');
+const HomeScreen = () => {
+  const {isError, isLoading, forecast, submitRequest} = useForecast();
 
-  const inputHandler = value => {
-    setLocation(value);
-  };
-
-  const clickHandler = () => {
-    onSearchLocation(location);
+  const onSubmit = value => {
+    submitRequest(value);
   };
 
   return (
-    <Card style={styles.card}>
-      <SearchInput onChangeInput={inputHandler} location={location} />
-      <MainButton onClick={clickHandler}>SEARCH</MainButton>
-    </Card>
+    <View style={styles.screen}>
+      <Header title="Weather Forecast" />
+      <ImageBackground
+        source={require('../assets/clouds.jpg')}
+        resizeMode="cover"
+        style={styles.image}>
+        <Card style={styles.card}>
+          {!forecast && !isLoading && <Form submitSearch={onSubmit} />}
+          {!forecast && isError && <Error message={isError} />}
+          {!forecast && isLoading && <Loader />}
+          {forecast && <Forecast forecast={forecast} />}
+        </Card>
+      </ImageBackground>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  image: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    opacity: 0.8,
+    backgroundColor: 'black',
+  },
   card: {
     justifyContent: 'center',
     alignItems: 'center',

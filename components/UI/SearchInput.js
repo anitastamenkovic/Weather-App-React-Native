@@ -18,6 +18,7 @@ const SearchInput = ({onChangeInput, location}) => {
 
   const blurHandler = () => {
     setFocus(false);
+    Keyboard.dismiss();
   };
 
   return (
@@ -45,9 +46,6 @@ const SearchInput = ({onChangeInput, location}) => {
 const styles = StyleSheet.create({
   inputContainer: {
     width: '80%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    // flex: 1,
   },
   input: {
     height: 40,

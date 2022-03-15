@@ -14,17 +14,14 @@ const MainButton = ({children, onClick, style}) => {
 
 const styles = StyleSheet.create({
   btnContainer: {
-    width: '80%',
     backgroundColor: Colors.primary,
     paddingHorizontal: 15,
     paddingVertical: 10,
     borderRadius: 10,
     marginTop: 10,
-    // justifyContent: 'center',
-    // alignItems: 'center',
+    minWidth: 100,
   },
   btnText: {
-    minWidth: 100,
     color: Colors.lightPrimary,
     fontFamily: 'Open Sans',
     fontSize: 18,
