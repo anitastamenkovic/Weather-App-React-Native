@@ -9,6 +9,7 @@ const Card = ({children, style}) => {
 const styles = StyleSheet.create({
   container: {
     width: '80%',
+    minHeight: 200,
     backgroundColor: Colors.grey,
     padding: 20,
     borderRadius: 10,

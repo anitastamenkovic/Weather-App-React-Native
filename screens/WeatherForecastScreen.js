@@ -7,16 +7,12 @@ import Card from '../components/UI/Card';
 
 const WeatherForecastScreen = () => {
   return (
-    <Card style={styles.card}>
+    <Card>
       <WeatherData />
     </Card>
   );
 };
 
-const styles = StyleSheet.create({
-  card: {
-    height: 300,
-  },
-});
+const styles = StyleSheet.create({});
 
 export default WeatherForecastScreen;

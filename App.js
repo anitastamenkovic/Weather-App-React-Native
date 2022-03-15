@@ -6,14 +6,18 @@ import HomeScreen from './screens/HomeScreen';
 import WeatherForecastScreen from './screens/WeatherForecastScreen';
 
 const App: () => Node = () => {
+  const searchLocationHandler = location => {
+    console.log(location);
+  };
+
   return (
     <View style={styles.screen}>
       <ImageBackground
         source={require('./assets/clouds.jpg')}
         resizeMode="cover"
         style={styles.image}>
-        <HomeScreen />
-        <WeatherForecastScreen />
+        <HomeScreen onSearchLocation={searchLocationHandler} />
+        {/* <WeatherForecastScreen /> */}
       </ImageBackground>
     </View>
   );

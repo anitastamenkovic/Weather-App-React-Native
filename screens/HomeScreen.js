@@ -1,21 +1,34 @@
-import React from 'react';
-import {StyleSheet, Text, View, Dimensions} from 'react-native';
-import Colors from '../constants/colors';
+import React, {useState} from 'react';
+import {StyleSheet} from 'react-native';
+// import Colors from '../constants/colors';
 
 import Card from '../components/UI/Card';
 import SearchInput from '../components/UI/SearchInput';
+import MainButton from '../components/UI/MainButton';
 
-const HomeScreen = () => {
+const HomeScreen = ({onSearchLocation}) => {
+  const [location, setLocation] = useState('');
+
+  const inputHandler = value => {
+    setLocation(value);
+  };
+
+  const clickHandler = () => {
+    onSearchLocation(location);
+  };
+
   return (
     <Card style={styles.card}>
-      <SearchInput />
+      <SearchInput onChangeInput={inputHandler} location={location} />
+      <MainButton onClick={clickHandler}>SEARCH</MainButton>
     </Card>
   );
 };
 
 const styles = StyleSheet.create({
   card: {
-    height: 200,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 

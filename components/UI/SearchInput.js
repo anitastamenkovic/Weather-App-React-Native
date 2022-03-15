@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import Colors from '../../constants/colors';
 
-const SearchInput = () => {
+const SearchInput = ({onChangeInput, location}) => {
   const [focus, setFocus] = useState(false);
   const customStyle = focus ? styles.inputFocus : '';
 
@@ -34,6 +34,8 @@ const SearchInput = () => {
           placeholder="Search any city"
           placeholderTextColor={Colors.grey}
           style={{...styles.input, ...customStyle}}
+          value={location}
+          onChangeText={onChangeInput}
         />
       </View>
     </TouchableWithoutFeedback>
@@ -42,13 +44,14 @@ const SearchInput = () => {
 
 const styles = StyleSheet.create({
   inputContainer: {
+    width: '80%',
     alignItems: 'center',
     justifyContent: 'center',
-    flex: 1,
+    // flex: 1,
   },
   input: {
     height: 40,
-    width: '80%',
+    width: '100%',
     backgroundColor: Colors.lightGray,
     color: Colors.grey,
     marginVertical: 10,
