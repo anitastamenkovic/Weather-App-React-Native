@@ -11,10 +11,6 @@ const Error = ({message}) => {
   );
 };
 
-const styles = StyleSheet.create({
-  error: {
-    color: 'red',
-  },
-});
+const styles = StyleSheet.create({});
 
 export default Error;

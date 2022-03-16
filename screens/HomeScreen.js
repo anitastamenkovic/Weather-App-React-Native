@@ -25,10 +25,10 @@ const HomeScreen = () => {
         resizeMode="cover"
         style={styles.image}>
         <Card style={styles.card}>
-          {!forecast && !isLoading && <Form submitSearch={onSubmit} />}
-          {!forecast && isError && <Error message={isError} />}
-          {!forecast && isLoading && <Loader />}
-          {forecast && <Forecast forecast={forecast} />}
+          {!forecast && !isLoading ? <Form submitSearch={onSubmit} /> : null}
+          {!forecast && isError ? <Error message={isError} /> : null}
+          {!forecast && isLoading ? <Loader /> : null}
+          {forecast ? <Forecast forecast={forecast} /> : null}
         </Card>
       </ImageBackground>
     </View>

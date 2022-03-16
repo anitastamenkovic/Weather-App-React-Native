@@ -8,7 +8,7 @@ import getUpcomingDaysForecast from '../helpers/getUpcomingDaysForecast';
 const BASE_URL = 'https://www.metaweather.com/api/location';
 
 const useForecast = () => {
-  const [isError, setError] = useState(false);
+  const [isError, setError] = useState('');
   const [isLoading, setLoading] = useState(false);
   const [forecast, setForecast] = useState(null);
 
@@ -24,14 +24,14 @@ const useForecast = () => {
       return woeid;
     } catch (error) {
       console.log('getWoeid', error.message);
-      throw error;
+      throw new Error('There is no such location');
     }
   };
 
   const getForecastData = async woeid => {
     try {
       const {data} = await axios.get(`${BASE_URL}/${woeid}/`);
-      if (!woeid || woeid.length === 0) {
+      if (!data || data.length === 0) {
         setError('Something went wrong');
         setLoading(false);
         return;
@@ -39,7 +39,7 @@ const useForecast = () => {
       return data;
     } catch (error) {
       console.log('getForecastData', error.message);
-      throw error;
+      throw new Error('Something went wrong');
     }
   };
 
@@ -59,7 +59,7 @@ const useForecast = () => {
 
   const submitRequest = async location => {
     setLoading(true);
-    setError(false);
+    setError('');
 
     try {
       const woeid = await getWoeid(location);
@@ -74,7 +74,7 @@ const useForecast = () => {
       gatherForecastData(data);
     } catch (error) {
       console.log('submitRequest', error.message);
-      throw error;
+      throw new Error('Something went wrong');
     }
   };
 
