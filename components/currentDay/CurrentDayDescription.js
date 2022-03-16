@@ -1,10 +1,14 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 
-const CurrentDayDescription = () => {
+import CurrentDayDescriptionItem from './CurrentDayDescriptionItem';
+
+const CurrentDayDescription = ({forecast}) => {
   return (
     <View>
-      <Text>Day</Text>
+      {forecast.map(item => (
+        <CurrentDayDescriptionItem {...item} key={item.name} />
+      ))}
     </View>
   );
 };

@@ -1,10 +1,20 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 
-const Forecast = () => {
+import CurrentDay from '../currentDay/CurrentDay';
+import CurrentDayDescription from '../currentDay/CurrentDayDescription';
+import UpcomingDaysForecast from '../upcomingDays/UpcomingDaysForecast';
+
+const Forecast = ({forecast}) => {
   return (
     <View>
-      <Text>Forecast</Text>
+      <View>
+        <CurrentDay {...forecast.currentDay} />
+      </View>
+      <View>
+        <CurrentDayDescription forecast={forecast.currentDayDetails} />
+        <UpcomingDaysForecast days={forecast.upcomingDays} />
+      </View>
     </View>
   );
 };

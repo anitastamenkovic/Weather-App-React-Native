@@ -1,10 +1,14 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 
-const UpcomingDaysForecast = () => {
+import UpcomingDaysForecastItem from './UpcomingDaysForecastItem';
+
+const UpcomingDaysForecast = ({days}) => {
   return (
     <View>
-      <Text>Day</Text>
+      {days.map(day => (
+        <UpcomingDaysForecastItem {...day} key={day.weekday} />
+      ))}
     </View>
   );
 };

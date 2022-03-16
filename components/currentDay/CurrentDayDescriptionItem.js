@@ -1,10 +1,13 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
-const CurrentDayDescriptionItem = () => {
+const CurrentDayDescriptionItem = ({name, value, unit}) => {
   return (
     <View>
-      <Text>Day</Text>
+      <Text>{name}</Text>
+      <Text>
+        {value} {unit}
+      </Text>
     </View>
   );
 };

@@ -6,8 +6,8 @@ import getCurrentDayDetailedForecast from '../helpers/getCurrentDayDetailedForec
 import getUpcomingDaysForecast from '../helpers/getUpcomingDaysForecast';
 
 const BASE_URL = 'https://www.metaweather.com/api/location';
-const CROSS_DOMAIN = 'https://the-ultimate-api-challenge.herokuapp.com';
-const REQUEST_URL = `${CROSS_DOMAIN}/${BASE_URL}`;
+// const CROSS_DOMAIN = 'https://the-ultimate-api-challenge.herokuapp.com';
+// const REQUEST_URL = `${CROSS_DOMAIN}/${BASE_URL}`;
 
 const useForecast = () => {
   const [isError, setError] = useState(false);
@@ -15,29 +15,67 @@ const useForecast = () => {
   const [forecast, setForecast] = useState(null);
 
   const getWoeid = async location => {
-    const {data} = await axios(`${REQUEST_URL}/search`, {
-      params: {query: location},
-    });
-
-    if (!data || data.length === 0) {
-      setError('There is no such location');
-      setLoading(false);
-      return;
+    try {
+      const {data} = await axios.get(`${BASE_URL}/search/?query=${location}`);
+      const woeid = data[0].woeid;
+      if (!woeid || woeid.length === 0) {
+        setError('There is no such location');
+        setLoading(false);
+        return;
+      }
+      console.log('Woeid', woeid);
+      return woeid;
+    } catch (error) {
+      console.log('getWoeid', error.message);
+      throw error;
     }
 
-    return data[0];
+    // axios
+    //   .get(`${BASE_URL}/search/?query=${location}`)
+    //   .then(response => {
+    //     const woeid = response.data[0].woeid;
+    //     if (!woeid || woeid.length === 0) {
+    //       setError('There is no such location');
+    //       setLoading(false);
+    //       return;
+    //     }
+    //     console.log('Woeid', woeid);
+    //     return woeid;
+    //   })
+    //   .catch(error => {
+    //     console.log('getWoeid', error.message);
+    //     throw error;
+    //   });
   };
 
   const getForecastData = async woeid => {
-    const {data} = await axios(`${REQUEST_URL}/${woeid}`);
-
-    if (!data || data.length === 0) {
-      setError('Something went wrong');
-      setLoading(false);
-      return;
+    try {
+      const {data} = await axios.get(`${BASE_URL}/${woeid}/`);
+      if (!woeid || woeid.length === 0) {
+        setError('Something went wrong');
+        setLoading(false);
+        return;
+      }
+      return data;
+    } catch (error) {
+      console.log('getForecastData', error.message);
+      throw error;
     }
-
-    return data;
+    // axios
+    //   .get(`${BASE_URL}/${woeid}/`)
+    //   .then(response => {
+    //     const data = response.data;
+    //     if (!data || data.length === 0) {
+    //       setError('Something went wrong');
+    //       setLoading(false);
+    //       return;
+    //     }
+    //     return data;
+    //   })
+    //   .catch(error => {
+    //     console.log('getForecastData', error.message);
+    //     throw error;
+    //   });
   };
 
   const gatherForecastData = data => {
@@ -58,17 +96,22 @@ const useForecast = () => {
     setLoading(true);
     setError(false);
 
-    const response = await getWoeid(location);
-    if (!response?.woeid) {
-      return;
-    }
+    try {
+      const woeid = await getWoeid(location);
+      console.log('submitRequest', woeid);
+      if (!woeid) {
+        return;
+      }
 
-    const data = await getForecastData(response.woeid);
-    if (!data) {
-      return;
+      const data = await getForecastData(woeid);
+      if (!data) {
+        return;
+      }
+      gatherForecastData(data);
+    } catch (error) {
+      console.log('submitRequest', error.message);
+      throw error;
     }
-
-    gatherForecastData(data);
   };
 
   return {

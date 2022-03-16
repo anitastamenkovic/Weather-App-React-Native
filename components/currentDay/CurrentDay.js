@@ -1,10 +1,32 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, Image} from 'react-native';
 
-const CurrentDay = () => {
+const CurrentDay = ({
+  weekday,
+  date,
+  location,
+  temperature,
+  weatherIcon,
+  weatherDescription,
+}) => {
   return (
     <View>
-      <Text>Day</Text>
+      <View>
+        <Text>{weekday}</Text>
+        <Text>{date}</Text>
+        <Text>
+          <Image
+            source={require('../../assets/location-pin.png')}
+            resizeMode="cover"
+          />
+          <Text>{location}</Text>
+        </Text>
+      </View>
+      <View>
+        <Image source={{uri: weatherIcon}} />
+        <Text>{temperature}°C</Text>
+        <Text>{weatherDescription}</Text>
+      </View>
     </View>
   );
 };
