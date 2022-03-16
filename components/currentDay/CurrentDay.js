@@ -18,7 +18,7 @@ const CurrentDay = ({
         source={require('../../assets/clouds.jpg')}
         resizeMode="cover"
         style={styles.backgroundImage}>
-        <View style={styles.container}>
+        <View>
           <View style={styles.topContainer}>
             <BoldText>{weekday}</BoldText>
             <BodyText>{date}</BodyText>
@@ -59,9 +59,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  constainer: {
-    marginHorizontal: 50,
   },
   topContainer: {
     padding: 10,

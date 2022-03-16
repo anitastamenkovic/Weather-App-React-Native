@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
   screen: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginVertical: 5,
   },
 });
 
