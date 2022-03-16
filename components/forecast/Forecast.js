@@ -7,7 +7,7 @@ import UpcomingDaysForecast from '../upcomingDays/UpcomingDaysForecast';
 
 const Forecast = ({forecast}) => {
   return (
-    <View>
+    <View style={styles.screen}>
       <View>
         <CurrentDay {...forecast.currentDay} />
       </View>
@@ -19,6 +19,8 @@ const Forecast = ({forecast}) => {
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  screen: {},
+});
 
 export default Forecast;
