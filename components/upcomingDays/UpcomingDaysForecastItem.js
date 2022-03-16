@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, View, Image} from 'react-native';
 
 import BodyText from '../UI/BodyText';
 import BodyUppercase from '../UI/BodyUppercase';
