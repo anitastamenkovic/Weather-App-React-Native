@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: Colors.lightGray,
     textTransform: 'uppercase',
+    marginVertical: 2,
   },
 });
 

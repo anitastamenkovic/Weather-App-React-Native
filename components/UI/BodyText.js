@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Open Sans',
     fontSize: Dimensions.get('window').width < 400 ? 16 : 18,
     color: Colors.lightGray,
+    marginVertical: 2,
   },
 });
 

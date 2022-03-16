@@ -11,14 +11,12 @@ const BoldText = ({children, style}) => {
 };
 
 const styles = StyleSheet.create({
-  textContainer: {
-    marginVertical: 10,
-  },
   text: {
     fontFamily: 'Open Sans',
     fontWeight: 'bold',
     fontSize: Dimensions.get('window').width < 400 ? 20 : 22,
     color: Colors.lightGray,
+    marginVertical: 2,
   },
 });
 
