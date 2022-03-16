@@ -5,7 +5,7 @@ import CurrentDayDescriptionItem from './CurrentDayDescriptionItem';
 
 const CurrentDayDescription = ({forecast}) => {
   return (
-    <View>
+    <View style={styles.screen}>
       {forecast.map(item => (
         <CurrentDayDescriptionItem {...item} key={item.name} />
       ))}
@@ -13,6 +13,10 @@ const CurrentDayDescription = ({forecast}) => {
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  screen: {
+    padding: 10,
+  },
+});
 
 export default CurrentDayDescription;

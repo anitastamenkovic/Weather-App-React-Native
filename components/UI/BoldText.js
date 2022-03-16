@@ -2,9 +2,9 @@ import React from 'react';
 import {StyleSheet, Text, View, Dimensions} from 'react-native';
 import Colors from '../../constants/colors';
 
-const BoldText = ({children}) => {
+const BoldText = ({children, style}) => {
   return (
-    <View style={styles.textContainer}>
+    <View style={{...styles.textContainer, ...style}}>
       <Text style={styles.text}>{children}</Text>
     </View>
   );

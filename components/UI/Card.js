@@ -8,10 +8,9 @@ const Card = ({children, style}) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: '80%',
+    width: 300,
     minHeight: 200,
     backgroundColor: Colors.grey,
-    padding: 20,
     borderRadius: 10,
     shadowColor: Colors.grey,
     shadowOffset: {width: 0, height: 2},

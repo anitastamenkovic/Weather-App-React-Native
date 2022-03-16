@@ -1,17 +1,26 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
+
+import BodyUppercase from '../UI/BodyUppercase';
+import BodyText from '../UI/BodyText';
 
 const CurrentDayDescriptionItem = ({name, value, unit}) => {
   return (
-    <View>
-      <Text>{name}</Text>
-      <Text>
+    <View style={styles.screen}>
+      <BodyUppercase style={styles.name}>{name}</BodyUppercase>
+      <BodyText>
         {value} {unit}
-      </Text>
+      </BodyText>
     </View>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  screen: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginVertical: 5,
+  },
+});
 
 export default CurrentDayDescriptionItem;
