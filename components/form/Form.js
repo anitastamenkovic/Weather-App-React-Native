@@ -16,7 +16,6 @@ const Form = ({submitSearch}) => {
       return;
     }
     submitSearch(location);
-    // console.log(location);
     setLocation('');
   };
 

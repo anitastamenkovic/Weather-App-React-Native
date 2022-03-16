@@ -6,8 +6,6 @@ import getCurrentDayDetailedForecast from '../helpers/getCurrentDayDetailedForec
 import getUpcomingDaysForecast from '../helpers/getUpcomingDaysForecast';
 
 const BASE_URL = 'https://www.metaweather.com/api/location';
-// const CROSS_DOMAIN = 'https://the-ultimate-api-challenge.herokuapp.com';
-// const REQUEST_URL = `${CROSS_DOMAIN}/${BASE_URL}`;
 
 const useForecast = () => {
   const [isError, setError] = useState(false);
@@ -23,29 +21,11 @@ const useForecast = () => {
         setLoading(false);
         return;
       }
-      console.log('Woeid', woeid);
       return woeid;
     } catch (error) {
       console.log('getWoeid', error.message);
       throw error;
     }
-
-    // axios
-    //   .get(`${BASE_URL}/search/?query=${location}`)
-    //   .then(response => {
-    //     const woeid = response.data[0].woeid;
-    //     if (!woeid || woeid.length === 0) {
-    //       setError('There is no such location');
-    //       setLoading(false);
-    //       return;
-    //     }
-    //     console.log('Woeid', woeid);
-    //     return woeid;
-    //   })
-    //   .catch(error => {
-    //     console.log('getWoeid', error.message);
-    //     throw error;
-    //   });
   };
 
   const getForecastData = async woeid => {
@@ -61,21 +41,6 @@ const useForecast = () => {
       console.log('getForecastData', error.message);
       throw error;
     }
-    // axios
-    //   .get(`${BASE_URL}/${woeid}/`)
-    //   .then(response => {
-    //     const data = response.data;
-    //     if (!data || data.length === 0) {
-    //       setError('Something went wrong');
-    //       setLoading(false);
-    //       return;
-    //     }
-    //     return data;
-    //   })
-    //   .catch(error => {
-    //     console.log('getForecastData', error.message);
-    //     throw error;
-    //   });
   };
 
   const gatherForecastData = data => {
@@ -98,7 +63,6 @@ const useForecast = () => {
 
     try {
       const woeid = await getWoeid(location);
-      console.log('submitRequest', woeid);
       if (!woeid) {
         return;
       }
