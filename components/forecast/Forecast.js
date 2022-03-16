@@ -6,6 +6,7 @@ import CurrentDayDescription from '../currentDay/CurrentDayDescription';
 import UpcomingDaysForecast from '../upcomingDays/UpcomingDaysForecast';
 
 const Forecast = ({forecast}) => {
+  console.log(forecast);
   return (
     <ScrollView>
       <CurrentDay {...forecast.currentDay} />

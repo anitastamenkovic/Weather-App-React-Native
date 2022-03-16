@@ -16,7 +16,8 @@
     "moment": "^2.29.1",
     "prop-types": "^15.8.1",
     "react": "17.0.2",
-    "react-native": "0.67.3"
+    "react-native": "0.67.3",
+    "react-native-svg": "^12.3.0"
   },
   "devDependencies": {
     "@babel/core": "7.17.5",
@@ -26,6 +27,7 @@
     "eslint": "7.14.0",
     "jest": "26.6.3",
     "metro-react-native-babel-preset": "0.66.2",
+    "react-native-svg-transformer": "^1.0.0",
     "react-test-renderer": "17.0.2"
   },
   "jest": {

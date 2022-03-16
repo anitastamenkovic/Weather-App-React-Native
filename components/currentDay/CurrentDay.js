@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, ImageBackground, View, Image} from 'react-native';
+import {SvgUri} from 'react-native-svg';
 
 import BoldText from '../UI/BoldText';
 import BodyText from '../UI/BodyText';
@@ -25,7 +26,7 @@ const CurrentDay = ({
             <View style={styles.locationContainer}>
               <View style={styles.imageContainer}>
                 <Image
-                  source={require('../../assets/location-pin.png')}
+                  source={require('../../assets/location.png')}
                   resizeMode="cover"
                   style={styles.image}
                 />
@@ -35,9 +36,7 @@ const CurrentDay = ({
           </View>
 
           <View style={styles.bottomContainer}>
-            <View style={styles.imageContainer}>
-              <Image source={{uri: weatherIcon}} style={styles.img} />
-            </View>
+            <SvgUri width={30} height={30} uri={weatherIcon} />
             <BoldText style={styles.text}>{temperature}°C</BoldText>
             <BodyText>{weatherDescription}</BodyText>
           </View>
@@ -62,16 +61,20 @@ const styles = StyleSheet.create({
   },
   topContainer: {
     padding: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   bottomContainer: {
     padding: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   locationContainer: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   imageContainer: {
-    width: 11,
+    width: 12,
     height: 15,
     overflow: 'hidden',
     marginRight: 10,
@@ -82,6 +85,10 @@ const styles = StyleSheet.create({
   },
   text: {
     marginVertical: 0,
+  },
+  icon: {
+    width: 20,
+    height: 20,
   },
 });
 
