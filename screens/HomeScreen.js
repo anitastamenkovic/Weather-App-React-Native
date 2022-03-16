@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
   card: {
     justifyContent: 'center',
     alignItems: 'center',
+    marginVertical: 20,
   },
 });
 
