@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, ScrollView, View} from 'react-native';
+import {StyleSheet, ScrollView} from 'react-native';
 
 import CurrentDay from '../currentDay/CurrentDay';
 import CurrentDayDescription from '../currentDay/CurrentDayDescription';

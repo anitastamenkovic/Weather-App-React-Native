@@ -14,7 +14,6 @@ const HomeScreen = () => {
 
   const onSubmit = value => {
     submitRequest(value);
-    // console.log(value);
   };
 
   return (
