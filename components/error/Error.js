@@ -11,6 +11,10 @@ const Error = ({message}) => {
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    marginBottom: 20,
+  },
+});
 
 export default Error;
