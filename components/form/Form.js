@@ -11,6 +11,7 @@ const Form = ({submitSearch}) => {
     setLocation(value);
   };
 
+  // onPress handler would be better naming convention
   const clickHandler = () => {
     if (!location || location === '') {
       return;

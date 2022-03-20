@@ -3,6 +3,7 @@ import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 import Colors from '../../constants/colors';
 
 const MainButton = ({children, onClick, style}) => {
+  // onClick is a function that will be called when the button is pressed, so better name it onPress
   return (
     <TouchableOpacity activeOpacity={0.6} onPress={onClick}>
       <View style={{...styles.btnContainer, ...style}}>

@@ -7,6 +7,7 @@ import getUpcomingDaysForecast from '../helpers/getUpcomingDaysForecast';
 
 const BASE_URL = 'https://www.metaweather.com/api/location';
 
+// Duplicated error handling logic
 const useForecast = () => {
   const [isError, setError] = useState('');
   const [isLoading, setLoading] = useState(false);

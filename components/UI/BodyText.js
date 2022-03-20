@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View, Dimensions} from 'react-native';
 import Colors from '../../constants/colors';
 
+// You could use just one Typography component, with prop bold or regular
 const BodyText = ({children}) => {
   return (
     <View style={styles.textContainer}>

@@ -7,6 +7,8 @@ import Card from '../components/UI/Card';
 import Form from '../components/form/Form';
 import Error from '../components/error/Error';
 import Loader from '../components/loader/Loader';
+// You should name Forecast component as index.js if you have folder named Forecast, and should be capitalized
+// then you should import it as Forecast from '../components/Forecast'
 import Forecast from '../components/forecast/Forecast';
 
 const HomeScreen = () => {
@@ -39,6 +41,7 @@ const HomeScreen = () => {
         source={require('../assets/clouds.jpg')}
         resizeMode="cover"
         style={styles.image}>
+        {/* Better encapsulate this render logic in separate function */}
         {!forecast ? (
           <Card>
             {!isLoading ? <Form submitSearch={onSubmit} /> : null}
