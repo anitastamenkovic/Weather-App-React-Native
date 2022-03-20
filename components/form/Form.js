@@ -29,9 +29,7 @@ const Form = ({submitSearch}) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
-    height: 200,
-    justifyContent: 'center',
+    marginVertical: 20,
     alignItems: 'center',
   },
 });

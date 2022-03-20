@@ -8,8 +8,11 @@ const Card = ({children, style}) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: 300,
-    minHeight: 200,
+    justifyContent: 'center',
+    alignItems: 'center',
+    minWidth: 300,
+    minHeight: 300,
+    maxHeight: 520,
     backgroundColor: Colors.grey,
     borderRadius: 10,
     shadowColor: Colors.grey,

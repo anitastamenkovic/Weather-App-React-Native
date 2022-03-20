@@ -45,14 +45,14 @@ const SearchInput = ({onChangeInput, location}) => {
 
 const styles = StyleSheet.create({
   inputContainer: {
-    width: '80%',
+    width: 200,
   },
   input: {
     height: 40,
     width: '100%',
     backgroundColor: Colors.lightGray,
     color: Colors.grey,
-    marginVertical: 10,
+    marginBottom: 10,
     fontFamily: 'Open Sans',
     borderRadius: 5,
     padding: 10,

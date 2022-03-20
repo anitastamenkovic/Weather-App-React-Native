@@ -14,12 +14,12 @@ const MainButton = ({children, onClick, style}) => {
 
 const styles = StyleSheet.create({
   btnContainer: {
+    width: 100,
     backgroundColor: Colors.primary,
     paddingHorizontal: 15,
     paddingVertical: 10,
     borderRadius: 10,
     marginTop: 10,
-    minWidth: 100,
   },
   btnText: {
     color: Colors.lightPrimary,

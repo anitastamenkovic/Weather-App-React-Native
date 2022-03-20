@@ -1,5 +1,11 @@
-import React from 'react';
-import {StyleSheet, ImageBackground, View, Image} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {
+  StyleSheet,
+  ImageBackground,
+  View,
+  Image,
+  Dimensions,
+} from 'react-native';
 import {SvgUri} from 'react-native-svg';
 
 import BoldText from '../UI/BoldText';
@@ -13,8 +19,30 @@ const CurrentDay = ({
   weatherIcon,
   weatherDescription,
 }) => {
+  const [deviceWidth, setDeviceWidth] = useState(
+    Dimensions.get('window').width,
+  );
+
+  useEffect(() => {
+    const updateLayout = () => {
+      setDeviceWidth(Dimensions.get('window').width);
+    };
+
+    const subscribe = Dimensions.addEventListener('change', updateLayout);
+
+    return () => {
+      subscribe.remove();
+    };
+  });
+
+  let screenStyle = styles.screen;
+
+  if (deviceWidth > 450) {
+    screenStyle = styles.screenBig;
+  }
+
   return (
-    <View style={styles.screen}>
+    <View style={screenStyle}>
       <ImageBackground
         source={require('../../assets/clouds.jpg')}
         resizeMode="cover"
@@ -50,6 +78,10 @@ const styles = StyleSheet.create({
   screen: {
     width: 300,
     height: 230,
+  },
+  screenBig: {
+    width: 300,
+    height: 300,
   },
   backgroundImage: {
     width: '100%',

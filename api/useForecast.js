@@ -17,14 +17,12 @@ const useForecast = () => {
       const {data} = await axios.get(`${BASE_URL}/search/?query=${location}`);
       const woeid = data[0].woeid;
       if (!woeid || woeid.length === 0) {
-        setError('There is no such location');
-        setLoading(false);
-        return;
+        throw new Error('There is no such location');
       }
       return woeid;
     } catch (error) {
-      console.log('getWoeid', error.message);
-      throw new Error('There is no such location');
+      setError(error.message);
+      setLoading(false);
     }
   };
 
@@ -32,14 +30,12 @@ const useForecast = () => {
     try {
       const {data} = await axios.get(`${BASE_URL}/${woeid}/`);
       if (!data || data.length === 0) {
-        setError('Something went wrong');
-        setLoading(false);
-        return;
+        throw new Error('Something went wrong');
       }
       return data;
     } catch (error) {
-      console.log('getForecastData', error.message);
-      throw new Error('Something went wrong');
+      setError(error.message);
+      setLoading(false);
     }
   };
 
@@ -64,17 +60,17 @@ const useForecast = () => {
     try {
       const woeid = await getWoeid(location);
       if (!woeid) {
-        return;
+        throw new Error('There is no such location');
       }
 
       const data = await getForecastData(woeid);
       if (!data) {
-        return;
+        throw new Error('Something went wrong');
       }
       gatherForecastData(data);
     } catch (error) {
-      console.log('submitRequest', error.message);
-      throw new Error('Something went wrong');
+      setError(error.message);
+      setLoading(false);
     }
   };
 
